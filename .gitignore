@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Data (lớn, không commit)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/README.md
+
+# Models (file binary nặng)
+models/*
+!models/.gitkeep
+
+# Results (regenerable)
+results/*
+!results/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Huggingface cache (nếu cài local)
+.cache/
+~/.cache/huggingface/
+
+# Gradio
+.gradio/
+flagged/

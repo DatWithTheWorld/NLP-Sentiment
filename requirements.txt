@@ -1,0 +1,41 @@
+# ===== Core =====
+# Bỏ pin <2.0 cho numpy: trên Python 3.13 chỉ có wheel cho numpy>=2.1.
+# Các thư viện dưới (torch 2.4+, sklearn 1.5+, gradio 4.40+) đã hỗ trợ numpy 2.x.
+numpy>=1.26
+pandas>=2.0
+scikit-learn>=1.4
+matplotlib>=3.7
+seaborn>=0.12
+
+# ===== Vietnamese NLP =====
+# underthesea là chính, pyvi để dự phòng (nhóm có thể đổi sau)
+underthesea>=6.7.0
+pyvi>=0.1.1
+
+# ===== Deep Learning =====
+# torch 2.4+ có wheel cho Python 3.13 và tương thích numpy 2.
+# Nếu máy có GPU NVIDIA: gỡ dòng này, cài wheel CUDA từ https://pytorch.org/.
+torch>=2.4
+
+# ===== Transformers (PhoBERT) =====
+transformers>=4.45
+sentencepiece>=0.2.0
+huggingface_hub>=0.24
+
+# ===== Dashboard / Demo =====
+gradio>=4.40
+
+# ===== Jupyter =====
+jupyterlab>=4.0
+ipywidgets>=8.0
+ipykernel>=6.25
+
+# ===== Data download =====
+# Auto-tải UIT-VSFC từ HuggingFace Hub
+datasets>=2.18
+gdown>=5.1.0
+requests>=2.31
+
+# ===== Utilities =====
+tqdm>=4.66
+joblib>=1.3
