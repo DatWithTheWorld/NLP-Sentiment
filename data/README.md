@@ -28,29 +28,32 @@ Mỗi tập (train/dev/test) gồm 3 file song song:
 
 ## Cách tải
 
-**Notebook `00_data_preparation.ipynb` sẽ tự tải dataset.** Nếu tự động không được, tải thủ công:
+**Notebook `00_data_preparation.ipynb` tự tải dataset** theo thứ tự ưu tiên:
 
-1. Trang chủ: https://nlp.uit.edu.vn/datasets/
-2. Hoặc mirror Github (cộng đồng): tìm "UIT-VSFC dataset"
-3. Giải nén vào: `data/raw/UIT-VSFC/`
+1. **Đã có sẵn** trong `data/raw/UIT-VSFC/` → load thẳng, skip download.
+2. **HuggingFace Hub** — `uitnlp/vietnamese_students_feedback`, fallback `ura-hcmut/UIT-VSFC`. Sau khi tải lần đầu, notebook **tự lưu xuống `data/raw/UIT-VSFC/`** theo format chuẩn → lần sau không phải tải lại.
+3. **SAMPLE 300 dòng** — fallback khi mất mạng (chỉ smoke-test).
 
-Sau khi giải nén thư mục `data/raw/` phải có dạng:
+Nếu cả 1+2 fail, tải thủ công từ https://nlp.uit.edu.vn/datasets/ rồi giải nén vào `data/raw/UIT-VSFC/`.
+
+### Cấu trúc raw (sau khi tải)
 
 ```
-data/raw/UIT-VSFC/
-├── train/
-│   ├── sents.txt
-│   ├── sentiments.txt
-│   └── topics.txt
-├── dev/
-│   ├── sents.txt
-│   ├── sentiments.txt
-│   └── topics.txt
-└── test/
-    ├── sents.txt
-    ├── sentiments.txt
-    └── topics.txt
+data/raw/
+├── UIT-VSFC/                       # tự tạo khi chạy notebook 00
+│   ├── train/
+│   │   ├── sents.txt               # 11.426 câu, 1 câu/dòng
+│   │   └── sentiments.txt          # 11.426 nhãn 0/1/2
+│   ├── dev/
+│   │   ├── sents.txt               # 1.583 câu
+│   │   └── sentiments.txt
+│   └── test/
+│       ├── sents.txt               # 3.166 câu
+│       └── sentiments.txt
+└── clapAI_vi.csv                   # (optional) cache khi bật USE_AUGMENT=True
 ```
+
+> Lưu ý: `.gitignore` đã loại trừ `data/raw/*` nên các file này không bị commit lên git (đỡ phình repo).
 
 ## Citation
 

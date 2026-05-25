@@ -46,16 +46,27 @@ NLPF/
 
 ---
 
-## Dataset: UIT-VSFC
+## Dataset: UIT-VSFC (+ tuỳ chọn augment)
 
 **Vietnamese Students' Feedback Corpus** – 16.175 câu phản hồi sinh viên, gán nhãn 3 lớp:
 - `0` = Negative
 - `1` = Neutral
 - `2` = Positive
 
-Đã chia sẵn train/dev/test. Xem `data/README.md` để biết cách tải.
+Đã chia sẵn train/dev/test. Xem `data/README.md` để biết chi tiết.
 
 > Nguồn: Nguyen et al. (2018) – UIT-VSFC: Vietnamese Students' Feedback Corpus for Sentiment Analysis.
+
+**Notebook `00_data_preparation.ipynb` tự tải tự động** theo thứ tự ưu tiên:
+1. File raw có sẵn trong `data/raw/UIT-VSFC/` (nếu đã tải tay).
+2. HuggingFace Hub: `uitnlp/vietnamese_students_feedback` rồi `ura-hcmut/UIT-VSFC`.
+3. Sample 300 dòng (fallback khi không có mạng — chỉ dùng smoke-test).
+
+### Muốn nhiều data hơn?
+
+Trong notebook 00 có **section 2.5 — Data Augmentation (optional)**. Đặt biến `USE_AUGMENT = True` để gộp thêm Vietnamese subset từ `clapAI/MultiLingualSentiment` (~127k câu, 3 lớp). Có thể nâng `train` lên ~100k câu.
+
+**Lưu ý:** augment chỉ thêm vào `train`; `dev/test` luôn giữ thuần UIT-VSFC để metric phản ánh đúng task.
 
 ---
 
