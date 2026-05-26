@@ -11,6 +11,7 @@ seaborn>=0.12
 # underthesea là chính, pyvi để dự phòng (nhóm có thể đổi sau)
 underthesea>=6.7.0
 pyvi>=0.1.1
+gensim>=4.3
 
 # ===== Deep Learning =====
 # torch 2.4+ có wheel cho Python 3.13 và tương thích numpy 2.
